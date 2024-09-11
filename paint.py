@@ -52,12 +52,31 @@ def circle(start, end):
 
 def rectangle(start, end):
     """Draw rectangle from start to end."""
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    radius = ((end.x - start.x) ** 2 + (end.y - start.y) ** 2) ** 0.5 / 2
+    goto(start.x, start.y - radius)  # Ajustar posición para empezar desde el borde superior
+    setheading(0)
+    circle(radius)
+
+    end_fill()
 
 
 def triangle(start, end):
     """Draw triangle from start to end."""
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    for _ in range(3):
+        forward(end.x - start.x)
+        left(120)
+
+    end_fill()
 
 
 def tap(x, y):
